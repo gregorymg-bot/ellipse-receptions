@@ -1,5 +1,5 @@
 /* ELLIPSE – fonctionnement hors ligne : la page et ses bibliothèques sont gardées sur l'appareil */
-const V='ellipse-2026-11-25';const BASE=['./','./index.html','./manifest.json','./icon-192.png','./icon-512.png'];
+const V='ellipse-2026-11-26';const BASE=['./','./index.html','./manifest.json','./icon-192.png','./icon-512.png'];
 const CDN=/^https:\/\/(cdnjs\.cloudflare\.com|cdn\.jsdelivr\.net|unpkg\.com|tessdata\.projectnaptha\.com)\//;
 self.addEventListener('install',e=>{e.waitUntil(caches.open(V).then(c=>c.addAll(BASE)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==V).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
